@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searching Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Searching Algorithm Visualizer</h1>
+            <p class="subtitle">Visualize how different searching algorithms find elements</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="array-size">Array Size:</label>
+                <input type="range" id="array-size" min="5" max="50" value="20">
+                <span id="array-size-value">20</span>
+            </div>
+
+            <div class="control-group">
+                <label for="search-speed">Speed:</label>
+                <input type="range" id="search-speed" min="100" max="2000" value="500" step="100">
+                <span id="speed-value">500ms</span>
+            </div>
+
+            <div class="control-group">
+                <label for="target-value">Target Value:</label>
+                <input type="number" id="target-value" min="0" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="algorithm-selector">
+            <h3>Select Algorithm:</h3>
+            <div class="algorithm-buttons">
+                <button class="algo-btn active" data-algo="linear">Linear Search</button>
+                <button class="algo-btn" data-algo="binary">Binary Search</button>
+                <button class="algo-btn" data-algo="jump">Jump Search</button>
+                <button class="algo-btn" data-algo="interpolation">Interpolation Search</button>
+            </div>
+        </div>
+
+        <div class="visualization-area">
+            <div id="array-container"></div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="generate-btn" class="action-btn">🔄 Generate New Array</button>
+            <button id="start-btn" class="action-btn primary">▶ Start Search</button>
+            <button id="reset-btn" class="action-btn">🔃 Reset</button>
+            <button id="pause-btn" class="action-btn">⏸ Pause</button>
+        </div>
+
+        <div class="statistics">
+            <h3>📊 Execution Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Algorithm:</span>
+                    <span id="stat-algorithm" class="stat-value">Linear Search</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Comparisons:</span>
+                    <span id="stat-comparisons" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Target:</span>
+                    <span id="stat-target" class="stat-value">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Result:</span>
+                    <span id="stat-result" class="stat-value">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Index:</span>
+                    <span id="stat-index" class="stat-value">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Time:</span>
+                    <span id="stat-time" class="stat-value">0ms</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>Legend:</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="color-box unvisited"></div>
+                    <span>Unvisited</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box comparing"></div>
+                    <span>Comparing</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box eliminated"></div>
+                    <span>Eliminated</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box found"></div>
+                    <span>Found</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="algorithm-info">
+            <h3>📖 Algorithm Information</h3>
+            <div id="algo-info-content">
+                <h4>Linear Search</h4>
+                <p>Linear Search is the simplest searching algorithm. It sequentially checks each element of the array until it finds the target or reaches the end.</p>
+                <ul>
+                    <li><strong>Time Complexity:</strong> O(n)</li>
+                    <li><strong>Space Complexity:</strong> O(1)</li>
+                    <li><strong>Best Case:</strong> O(1) - target is first element</li>
+                    <li><strong>Works on:</strong> Any array (sorted or unsorted)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
